@@ -10,7 +10,7 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/cool', (req, res) => res.send(cool()))
   .get('/times', (req, res) => res.send(showTimes()))
-  .get('/getRate', (req, res) => res.render('pages/getRate')
+  .get('/getRate', (req, res) => res.render('pages/getRate'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
   showTimes = () => {
