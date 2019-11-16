@@ -16,6 +16,7 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/cool', (req, res) => res.send(cool()))
   .get('/times', (req, res) => res.send(showTimes()))
+  .get('/getRate', (req, res) => res.render('pages/getRate')
   .get('/db', async (req, res) => {
     try {
       const client = await pool.connect()
