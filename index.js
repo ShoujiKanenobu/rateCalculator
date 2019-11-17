@@ -11,18 +11,10 @@ express()
   .get('/cool', (req, res) => res.send(cool()))
   .get('/times', (req, res) => res.send(showTimes()))
   .post('/getRate', (req, res) => {
-    let ren = calculateRate(req)
-     res.render('pages/getRate', ren)
+    let ren = calculateRate(req);
+    res.render('pages/getRate', ren)
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
-  showTimes = () => {
-  let result = ''
-  const times = process.env.TIMES || 5
-  for (i = 0; i < times; i++) {
-    result += i + ' '
-  }
-  return result;
 
   function calculateRate(req) {
     let mailType = req.query.mailType;
@@ -81,6 +73,13 @@ express()
       break;
     }
     return { mailType: mailType, weight: weight, rate: rate };
-
   }
-}
+  
+  showTimes = () => {
+  let result = ''
+  const times = process.env.TIMES || 5
+      for (i = 0; i < times; i++) {
+        result += i + ' '
+      }
+  return result;
+  }
