@@ -11,8 +11,8 @@ express()
   .get('/cool', (req, res) => res.send(cool()))
   .get('/times', (req, res) => res.send(showTimes()))
   .post('/getRate', (req, res) => {
-    let r = calculateRate(req)
-     res.render('pages/getRate', r)
+    let ren = calculateRate(req)
+     res.render('pages/getRate', ren)
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
