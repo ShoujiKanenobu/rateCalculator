@@ -24,12 +24,12 @@ express()
     switch(mailType)
     {
       case 'LettersStamped':
-          if(weight < 1)
+          if(weight > 1)
           {
               rate = 0.55;
               weight--;
           }
-          while(weight < 0)
+          while(weight > 0)
           {
             rate += 0.15;
             weight--;
@@ -37,24 +37,24 @@ express()
 
       break;
       case 'LettersMetered':
-          if(weight < 1)
+          if(weight > 1)
           {
               rate = 0.5;
               weight--;
           }
-          while(weight < 0)
+          while(weight > 0)
           {
             rate += 0.15;
             weight--;
           }
       break;
       case 'LargeEnvelopes':
-        if(weight < 1)
+        if(weight > 1)
           {
               rate = 1;
               weight--;
           }
-          while(weight < 0)
+          while(weight > 0)
           {
             rate += 0.15;
             weight--;
@@ -74,7 +74,7 @@ express()
     }
     return { mailType: mailType, weight: weight, rate: rate };
   }
-  
+
   showTimes = () => {
   let result = ''
   const times = process.env.TIMES || 5
