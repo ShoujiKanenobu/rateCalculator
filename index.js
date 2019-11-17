@@ -10,9 +10,9 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/cool', (req, res) => res.send(cool()))
   .get('/times', (req, res) => res.send(showTimes()))
-  .get('/getRate', (req, res) => {
-    let rate = calculateRate(req)
-     res.render('pages/getRate', rate)
+  .post('/getRate', (req, res) => {
+    let r = calculateRate(req)
+     res.render('pages/getRate', r)
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
@@ -78,7 +78,6 @@ express()
           } else {
             rate = 5.71;
           }
-
       break;
     }
     return { mailType: mailType, weight: weight, rate: rate };
